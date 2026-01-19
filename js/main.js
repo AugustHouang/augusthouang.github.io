@@ -170,8 +170,7 @@ function initProductGallery() {
     const mainSlides = Array.from(document.querySelectorAll(".slick-slide-main"));
 
     const thumbTrack = document.querySelector(".slick-track-thumb");
-    const thumbTrackWrap = thumbTrack?.parentElement;
-    let thumbSlides = Array.from(document.querySelectorAll(".slick-slide-thumb"));
+    const thumbSlides = Array.from(document.querySelectorAll(".slick-slide-thumb"));
 
     const prevBtn = document.querySelector(".slick-prev");
     const nextBtn = document.querySelector(".slick-next");
@@ -179,43 +178,17 @@ function initProductGallery() {
     if (!mainTrack || !thumbTrack || !mainSlides.length || !thumbSlides.length) return;
 
     const total = mainSlides.length;
-    let galleryIndex = 0;
+    let index = 0;
 
     const mainWidth = () => mainSlides[0].offsetWidth;
     const thumbWidth = () => thumbSlides[0].offsetWidth;
 
+    // set data-index cho thumb
     thumbSlides.forEach((thumb, i) => {
         thumb.dataset.index = i;
     });
 
-    const visibleThumbs = Math.ceil(
-        thumbTrackWrap.offsetWidth / thumbWidth()
-    );
-
-    for (let i = 0; i < visibleThumbs; i++) {
-        const clone = thumbSlides[i].cloneNode(true);
-        clone.classList.add("is-clone");
-        clone.dataset.index = thumbSlides[i].dataset.index;
-        thumbTrack.appendChild(clone);
-    }
-
-    thumbSlides = Array.from(document.querySelectorAll(".slick-slide-thumb"));
-
-    function updateGallery(index, instant = false) {
-        if (index < 0) index = total - 1;
-        if (index >= total) index = 0;
-        galleryIndex = index;
-
-        thumbSlides.forEach(t =>
-            t.classList.remove("slick-active", "slick-current")
-        );
-
-        thumbSlides.forEach(t => {
-            if (+t.dataset.index === galleryIndex) {
-                t.classList.add("slick-active", "slick-current");
-            }
-        });
-
+    function update(activeIndex, instant = false) {
         if (instant) {
             mainTrack.style.transition = "none";
             thumbTrack.style.transition = "none";
@@ -223,10 +196,10 @@ function initProductGallery() {
 
         requestAnimationFrame(() => {
             mainTrack.style.transform =
-                `translate3d(${-galleryIndex * mainWidth()}px,0,0)`;
+                `translate3d(${-activeIndex * mainWidth()}px,0,0)`;
 
             thumbTrack.style.transform =
-                `translate3d(${-galleryIndex * thumbWidth()}px,0,0)`;
+                `translate3d(${-activeIndex * thumbWidth()}px,0,0)`;
         });
 
         if (instant) {
@@ -235,32 +208,43 @@ function initProductGallery() {
                 thumbTrack.style.transition = "";
             });
         }
+
+        thumbSlides.forEach(t =>
+            t.classList.remove("slick-active", "slick-current")
+        );
+        thumbSlides[activeIndex]?.classList.add("slick-active", "slick-current");
     }
 
-    prevBtn?.addEventListener("click", () => {
-        updateGallery(galleryIndex - 1);
-    });
-
+    /* NEXT */
     nextBtn?.addEventListener("click", () => {
-        updateGallery(galleryIndex + 1);
+        index = (index + 1) % total;
+        update(index);
     });
 
+    /* PREV */
+    prevBtn?.addEventListener("click", () => {
+        index = (index - 1 + total) % total;
+        update(index);
+    });
+
+    /* CLICK THUMB */
     thumbSlides.forEach(thumb => {
         thumb.addEventListener("click", () => {
-            const index = +thumb.dataset.index;
-            updateGallery(index);
+            index = +thumb.dataset.index;
+            update(index);
         });
     });
 
+    /* RESIZE */
     let resizeTimer;
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
-            updateGallery(galleryIndex, true);
+            update(index, true);
         }, 100);
     });
 
-    updateGallery(0, true);
+    update(0, true);
 }
 
 
