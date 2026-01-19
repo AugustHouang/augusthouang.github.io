@@ -1,0 +1,519 @@
+ .page-width {
+     max-width: 1340px;
+     margin: 0 auto;
+     padding: 0 15px;
+     font-weight: 700;
+ }
+
+ .title {
+     font-size: 24px;
+     font-weight: 400;
+     line-height: 1.3em;
+     margin: 16px 0;
+     font-family: 'Lora', serif;
+     text-align: center;
+ }
+
+ .slick-slider-main {
+     position: relative;
+     box-sizing: border-box;
+     user-select: none;
+     touch-action: pan-y;
+ }
+
+ .slick-track-main {
+     position: relative;
+     top: 0;
+     left: 0;
+     display: block;
+     margin: 0 auto;
+     opacity: 1;
+     width: 17442px;
+     transform: translate3d(-5814px, 0px, 0px);
+ }
+
+ .slick-track-main,
+ .slick-track-thumb {
+     transition: transform 0.45s ease;
+     will-change: transform;
+ }
+
+ .slick-slide-main {
+     display: block;
+     float: left;
+     width: 646px;
+     height: 100%;
+     min-height: 1px;
+ }
+
+ .slick-prev {
+     position: absolute;
+     top: 50%;
+     left: -25px;
+     transform: translate(0, -50%);
+     cursor: pointer;
+ }
+
+ .nutrition-infor,
+ .nutrition-infor1 {
+     position: absolute;
+     bottom: 32px;
+     z-index: 2;
+     display: flex;
+     justify-content: center;
+     gap: 8px;
+     line-height: 1.2em;
+     max-width: 290px;
+     padding: 8px 24px;
+     background-color: #ffffffd9;
+     border: 1px solid black;
+     border-radius: 24px;
+     cursor: pointer;
+     font-size: 14px;
+ }
+
+ .nutrition-infor,
+ .nutrition-infor1 span {
+     display: flex;
+     align-items: center;
+     font-weight: 400;
+ }
+
+ .sale {
+     position: absolute;
+     right: 16px;
+     top: 16px;
+     width: 100%;
+     max-width: 120px;
+ }
+
+ .slick-next {
+     position: absolute;
+     top: 50%;
+     right: -25px;
+     transform: translate(0, -50%);
+     cursor: pointer;
+ }
+
+ .slick-prev hover,
+ .slick-next hover {
+     color: transparent;
+     outline: 0;
+ }
+
+ .slick-track-thumb {
+     position: relative;
+     top: 0;
+     left: 0;
+     display: block;
+     margin: 0 auto;
+     opacity: 1;
+     width: 4860px;
+     transform: translate3d(-1944px, 0px, 0px);
+ }
+
+ .slick-slide-thumb {
+     display: block;
+     float: left;
+     width: 162px;
+     height: 100%;
+     min-height: 1px;
+ }
+
+ .active .choose-item {
+     width: 16px;
+     height: 16px;
+     border-radius: 50%;
+     display: block !important;
+     background-color: #039869 !important;
+ }
+
+ .active .line-active {
+     opacity: 1;
+ }
+
+ .tab-block {
+     border-radius: 32px;
+     margin-bottom: 16px;
+     padding: 16px;
+     cursor: pointer;
+     border: 1px solid #d2d2d2;
+ }
+
+ .tab-block.active {
+     border: 1px solid #039869;
+ }
+
+ .tab-thumb {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     gap: 12px;
+ }
+
+ .tab-thumb-image {
+     width: 24px;
+     transition: all .2s;
+ }
+
+ .tab-content {
+     max-height: 0;
+     overflow: hidden;
+     transition: all 0.6s;
+     font-size: 16px;
+     line-height: 1.3em;
+     font-weight: 400;
+ }
+
+ .tab-content ul {
+     font-size: 15px;
+     line-height: 27px;
+     font-weight: 400;
+ }
+
+ .popup {
+     display: none;
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: #000000b3;
+     align-items: center;
+     justify-content: center;
+     z-index: 99999;
+     padding: 12px;
+ }
+
+ .popup.active {
+     display: flex;
+ }
+
+ .symptom-card {
+     display: flex;
+     border-radius: 0.375rem;
+     overflow: hidden;
+     width: 100%;
+     font-weight: 400;
+ }
+
+ .checkMark-item {
+     list-style: none;
+     padding-left: 2rem;
+     background: url('https://trysculptique.com/cdn/shop/files/check-mark_17013456_2_1.png?v=1760702838');
+     background-repeat: no-repeat;
+     background-position: left 0;
+     background-size: 20px;
+     color: #0c7c00;
+     font-weight: 600;
+     font-family: Nunito, sans-serif;
+     margin: 8px 0;
+ }
+
+ .crossMark-item {
+     list-style: none;
+     padding-left: 2rem;
+     background-image: url('https://trysculptique.com/cdn/shop/files/Vector_7.png?v=1760702839');
+     background-repeat: no-repeat;
+     background-position: left 0;
+     background-size: 20px;
+     color: #a60003;
+     font-weight: 600;
+     font-family: Nunito, sans-serif;
+     margin: 8px 0;
+ }
+
+ .product_primary-btn {
+     display: inline-block;
+     font-family: Nunito, sans-serif;
+     padding: 16px;
+     cursor: pointer;
+     text-decoration: none;
+     color: #fff;
+     background: #000;
+     border-radius: 4px;
+     font-size: 16px;
+     transition: all .2s;
+     line-height: 1.3em;
+     text-align: center;
+ }
+
+ @keyframes logo_scroll {
+     0% {
+         transform: translateX(0);
+     }
+
+     100% {
+         transform: translateX(-50%);
+     }
+ }
+
+ .logos_wrap {
+     display: flex;
+     align-items: center;
+     width: fit-content;
+     animation: logo_scroll 30s infinite linear;
+ }
+
+ .logos_wrap img {
+     display: block;
+     width: auto;
+     height: 30px;
+     margin: 0 50px;
+ }
+
+ .ingredient-list {
+     display: grid;
+     grid-template-columns: 1fr;
+     background-color: #fff;
+     border-radius: 12px;
+     border: .5px solid black;
+     overflow: hidden;
+     margin-top: 40px;
+ }
+
+ .ingredient-item {
+     border: .5px solid black;
+     padding: 16px;
+     cursor: pointer;
+ }
+
+ .ingredient-item-subtitle {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 8px;
+     font-size: 16px;
+     font-family: Nunito, sans-serif;
+     color: #0c7c00;
+     margin: 0;
+ }
+
+ .ingredient-item-subtitle img {
+     display: block;
+     width: 100%;
+     max-width: 16px;
+ }
+
+ .ingredient-item-image {
+     display: block;
+     width: auto !important;
+     max-width: 120px;
+     max-height: 80px;
+     margin: 12px auto;
+ }
+
+ .ingredient-item-thumb {
+     width: 100%;
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     justify-content: space-between;
+ }
+
+ .ingredient-item-thumb-image {
+     display: none;
+ }
+
+ .ingredient-item-thumb-icon {
+     display: block;
+     width: 100%;
+     max-width: 24px;
+     margin-left: auto;
+ }
+
+ .ingredient-item-content {
+     max-height: 0;
+     overflow: hidden;
+     transition: all 0.6s;
+     font-size: 14px;
+     line-height: 1.3em;
+     font-family: Nunito, sans-serif;
+     font-weight: 400;
+ }
+
+ .slick-slider {
+     position: relative;
+     display: block;
+     box-sizing: border-box;
+     user-select: none;
+     touch-action: pan-y;
+ }
+
+ .slick-list {
+     position: relative;
+     overflow: hidden;
+     width: 100%;
+ }
+
+ .slick-track {
+     display: flex;
+     transition: transform 0.4s ease;
+     will-change: transform;
+ }
+
+ .slick-slide {
+     width: auto;
+     padding: 8px;
+     box-sizing: border-box;
+     flex-shrink: 0;
+ }
+
+ .ugc-card {
+     position: relative;
+     border-radius: 6px;
+     overflow: hidden;
+     cursor: pointer;
+ }
+
+ .ugc-play {
+     position: absolute;
+     width: 32px;
+     height: 32px;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     z-index: 2;
+     pointer-events: none;
+ }
+
+ .ugc-video {
+     object-fit: cover;
+     border-radius: 6px;
+ }
+
+ .slick-dots {
+     position: relative;
+     display: flex;
+     align-items: center;
+     gap: 0;
+     height: 4px;
+     border-radius: 999px;
+     overflow: hidden;
+     flex: 1;
+     z-index: 99999;
+ }
+
+ .slick-dot {
+     flex: 1;
+     height: 100%;
+     margin: 0;
+     padding: 0;
+     position: relative;
+ }
+
+ .slick-dot button {
+     width: 100%;
+     height: 100%;
+     padding: 0;
+     background: #00000026;
+     border: none;
+     cursor: pointer;
+ }
+
+ .slick-dot.slick-active button {
+     background: #039869;
+ }
+
+ .carousel-controls {
+     display: flex;
+     align-items: center;
+     gap: 16px;
+     width: 100%;
+     margin-top: 24px;
+ }
+
+ .faq-container {
+     max-width: 824px;
+     margin: auto;
+     border-radius: 16px;
+     overflow: hidden;
+     padding: 16px;
+     background: linear-gradient(180deg, #fff, #f3eee0);
+ }
+
+ .faq-title {
+     padding: 16px 0;
+     cursor: pointer;
+     border-bottom: 1px solid white;
+ }
+
+ .faq-thumb {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     gap: 12px;
+ }
+
+ .faq-content {
+     max-height: 0;
+     overflow: hidden;
+     transition: all 0.6s;
+     font-size: 16px;
+     line-height: 1.3em;
+     font-family: Nunito, sans-serif;
+     font-weight: 400;
+ }
+
+ @media (max-width: 640px) {
+     .slick-slide {
+         width: 75%;
+     }
+ }
+
+ @media (max-width:678px) {
+     .slick-prev {
+         left: 24px;
+         z-index: 2;
+         width: 32px;
+         height: 32px;
+     }
+
+     .slick-next {
+         right: 24px;
+         z-index: 2;
+         width: 32px;
+         height: 32px;
+     }
+
+     .slick-slide-thumb {
+         padding: 0 4px;
+     }
+
+     .product_primary-btn {
+         width: 100%;
+     }
+
+     .ingredient-item-image {
+         display: none !important;
+     }
+
+     .ingredient-item-thumb-image {
+         display: block;
+         width: auto !important;
+         max-width: 120px;
+         max-height: 80px;
+         margin: 12px auto;
+         max-width: 100px;
+         margin: 0;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .sale {
+         max-width: 80px;
+     }
+
+     .ingredient-item-image,
+     .ingredient-item-thumb-image {
+         max-width: 100% !important;
+     }
+
+ }
+
+ @media (max-width: 900px) {
+     .logos_wrap img {
+         max-height: 20px;
+         margin: 0 25px;
+     }
+ }
